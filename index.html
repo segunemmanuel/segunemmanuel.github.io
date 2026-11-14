@@ -1,120 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emmanuel Adeyemi | Backend Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Adeyemi — Backend Engineer</title>
+<meta name="description" content="Emmanuel (Manny) Adeyemi — backend engineer building APIs and platforms with Java, Spring Boot, Laravel and Node.js. Based in Birmingham, UK.">
+<meta property="og:title" content="Emmanuel Adeyemi — Backend Engineer">
+<meta property="og:description" content="APIs, ERPs and data-heavy platforms with Java, Spring Boot, Laravel and Node.js.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1020; --bg2:#111831; --card:#141c38; --line:#243056;
+    --text:#e6e9f2; --muted:#9aa4c0; --accent:#4fd1a5; --accent2:#7aa2ff; --warn:#ffcf6e;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,16,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:var(--mono);font-weight:500;color:var(--text)}
+  .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:22px;list-style:none}
+  nav ul a{color:var(--muted);font-size:14px}
+  nav ul a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:700px){nav ul{display:none}}
+
+  header{padding:80px 0 60px}
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:880px){.hero{grid-template-columns:1fr}}
+  .tag{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:14px}
+  h1{font-size:clamp(34px,5vw,52px);line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lead{color:var(--muted);font-size:18px;max-width:540px;margin-bottom:28px}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--bg2)}
+  .btn:hover{text-decoration:none;border-color:var(--accent2)}
+  .btn.primary{background:var(--accent);color:#06281d;border-color:var(--accent)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn svg{width:18px;height:18px;fill:currentColor}
+
+  .term{background:#0a0f1e;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .term-bar{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
+  .term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+  .term pre{font-family:var(--mono);font-size:13px;line-height:1.7;padding:18px 20px;overflow-x:auto;color:#cdd6f4}
+  .k{color:var(--accent2)}.s{color:var(--accent)}.n{color:var(--warn)}.c{color:#6c7899}
+
+  section{padding:70px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:32px}
+  .sec-head .num{font-family:var(--mono);color:var(--accent);font-size:14px}
+  h2{font-size:28px;letter-spacing:-.01em}
+
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+  @media(max-width:880px){.about{grid-template-columns:1fr}}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about p strong{color:var(--text);font-weight:600}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .stat b{display:block;font-size:28px;color:var(--accent)}
+  .stat span{color:var(--muted);font-size:14px}
+
+  .timeline{position:relative;padding-left:26px}
+  .timeline:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .job{position:relative;margin-bottom:34px}
+  .job:before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+  .job-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px}
+  .job h3{font-size:18px}
+  .job h3 span{color:var(--accent2);font-weight:500}
+  .when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .job .ctx{color:var(--muted);font-size:14px;margin:2px 0 8px}
+  .job ul{margin-left:18px;color:#c4cbe0}
+  .job li{margin-bottom:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent2)}
+  .card .lang{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:8px}
+  .card h3{font-size:17px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14.5px;flex:1}
+  .card a.more{margin-top:14px;font-family:var(--mono);font-size:13px}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+  .skill{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .skill h3{font-size:15px;margin-bottom:12px;color:var(--accent2)}
+
+  .edu{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .edu div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .edu b{display:block;margin-bottom:4px}
+  .edu span{color:var(--muted);font-size:14px}
+
+  .contact{text-align:center}
+  .contact p{color:var(--muted);max-width:560px;margin:0 auto 26px}
+  .contact .btns{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:13px;font-family:var(--mono)}
+</style>
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-3">
-        <h1>Emmanuel Adeyemi</h1>
-        <p>Backend Developer | PHP, Java, Laravel, Springboot Expert</p>
-        <div>
-            <a href="https://www.linkedin.com/in/segun-adeyemi/" class="text-white me-2"><i class="fab fa-linkedin"></i><span class="ms-2">LinkedIn</span></a>
-            <a href="https://github.com/segunemmanuel" class="text-white me-2"><i class="fab fa-github"></i><span class="ms-2">GitHub</span></a>
-            <a href="mailto:segunemmanuel46@gmail.com" class="text-white"><i class="fas fa-envelope"></i><span class="ms-2">Email</span></a>
-        </div>
-    </header>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12">
-                <section id="profile-summary">
-                    <h2>About Me</h2>
-                    <p>As a Backend Developer and Data Scientist with over 4 years of experience, I specialize in building powerful web and mobile applications with PHP, Java, Laravel, and Springboot, as well as a strong understanding of REST APIs and MySQL. My expertise includes using statistical analysis, machine learning techniques, and data visualization to generate insights and predictive models that guide strategic decisions. Proficient in Python, R, TensorFlow, and SQL, I use these tools to design scalable solutions that drive corporate growth and improve user experiences through data-driven innovation.</p>
-                </section>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">manny<span>@</span>backend:~$</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-                <section id="education" class="mt-4">
-                    <h2>Education</h2>
-                    <ul class="list-unstyled">
-                        <li>B.Sc. Physiology - University of Ilorin</li>
-                        <li>Msc. Data science for business - University of Stirling</li>
-                    </ul>
-                </section>
-                <section id="work-experience" class="mt-4">
-                    <h2>Work Experience</h2>
-
-                    <!-- Software Engineer at POS -->
-                    <div>
-                        <h3>Software Engineer</h3>
-                        <p>Protecting Our Students (POS) · Oct 2022 - Present · Missouri, United States (Remote). Contributed to developing secure, scalable educational software to enhance student safety measures.</p>
-                    </div>
-
-                    <!-- Summer Intern at IMADATA -->
-                    <div>
-                        <h3>Summer Intern</h3>
-                        <p>IMADATA · Jul 2023 - Sep 2023 · Mexico (Remote). Worked on projects utilizing GCP for scalable solutions, conducted business consulting, and implemented Python for data analysis.</p>
-                    </div>
-
-                    <!-- Co-Founder at Cuesoft -->
-                    <div>
-                        <h3>Co-Founder</h3>
-                        <p>Cuesoft · Oct 2019 - May 2023 · Delaware County, Pennsylvania, United States (Remote). Led product management initiatives, steering the development and launch of innovative software solutions.</p>
-                    </div>
-
-                    <!-- Back End Developer at Swift MediSpark -->
-                    <div>
-                        <h3>Back End Developer</h3>
-                        <p>Swift MediSpark · Jun 2022 - Feb 2023 · Lagos, Nigeria. Developed and maintained backend systems for healthcare applications, enhancing system efficiency and reliability.</p>
-                    </div>
-
-                    <!-- Software Engineer at Stride ERP -->
-                    <div>
-                        <h3>Software Engineer</h3>
-                        <p>Stride ERP · Mar 2022 - Apr 2022 · Lagos, Nigeria. Contributed to the ERP system development, focusing on improving product functionality using Laravel and Vue.js.</p>
-                    </div>
-
-                    <!-- Full-stack Developer at MyTuvan LLC -->
-                    <div>
-                        <h3>Full-stack Developer</h3>
-                        <p>MyTuvan LLC · Mar 2019 - May 2021 · Columbus, Ohio, United States. Developed full-stack solutions for client projects, integrating front-end and back-end technologies for enhanced web applications.</p>
-                    </div>
-
-                    <!-- Graduate Intern at NAFDAC -->
-                    <div>
-                        <h3>Graduate Intern</h3>
-                        <p>National Agency for Food and Drug Administration and Control (NAFDAC) · Nov 2018 - Oct 2019 · Lagos. Supported IT projects and web development initiatives, contributing to public health safety platforms.</p>
-                    </div>
-
-                    <!-- Web Developer at Frontpage IT -->
-                    <div>
-                        <h3>Web Developer</h3>
-                        <p>Frontpage IT · May 2017 - Feb 2018 · Ilorin. Developed and managed websites, focusing on usability, performance, and accessibility. More at <a href="https://frontpage-ng.com/">https://frontpage-ng.com/</a>.</p>
-                    </div>
-
-                </section>
-
-
-
-                <section id="skills" class="mt-4">
-                    <h2>Skills</h2>
-                    <p>Technologies: PHP, Laravel, Lumen, REST API, Node.js, Nest.js, Postman, Docker, AWS (ELB, CodePipeline, CodeCommit), JavaScript, Vue.js, CSS, HTML, Bootstrap, SQL, MySQL, Redis, Composer, Java, Spring, Spring Boot, Memcached, Git, GitHub, PHPUnit, Pusher, Laravel Echo, Valet, CodeIgniter, Livewire, Pandas, NumPy, SQL, Scikit-learn, TensorFlow, Keras, R, Python.</p>
-                </section>
-
-
-                <section id="projects" class="mt-4">
-                    <h2>Personal Projects</h2>
-                    <ul class="list-unstyled">
-                        <li> <a href="https://github.com/segunemmanuel/school_management_software">School ERP System </a> - A comprehensive system for managing school operations.</li>
-
-                        <li> <a href="https://github.com/segunemmanuel/store_app_laravel_vue">Store ERP System </a> - A platform for retail management, enhancing inventory and sales processes.</li>
-
-                        <li> <a href="https://github.com/segunemmanuel/Exploring-the-Bitcoin-Cryptocurrency-Market/blob/main/notebook.ipynb">Exploring the Bitcoin Cryptocurrency Market </a> - This GitHub project provides an insightful analysis into the Bitcoin market, highlighting trends, performance, and comparisons with other cryptocurrencies using Python-based data analysis.</li>
-
-                        <li> <a href="https://github.com/segunemmanuel/Crop-Selection-Machine-Learning/blob/main/notebook.ipynb"> Crop Selection Machine Learning Model </a> The GitHub project 'Crop Selection Machine Learning' explores optimal crop selection using machine learning, analyzing environmental factors and soil types to recommend the best crops, enhancing agricultural productivity and sustainability.</li>
-                    </ul>
-                </section>
-
-                <footer class="text-center mt-5 py-4 bg-light">
-                    <p>Contact me at <a href="mailto:segunemmanuel46@gmail.com">segunemmanuel46@gmail.com</a></p>
-                </footer>
-            </div>
-        </div>
+<header id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="tag">// Backend Engineer · Birmingham, UK</div>
+      <h1>Hi, I'm Emmanuel.<br>I build the <em>backend</em> that keeps products running.</h1>
+      <p class="lead">Six-plus years designing REST APIs, ERP systems and data-heavy platforms with Java, Spring Boot, Laravel and Node.js — across healthtech, school safety, geospatial and enterprise software.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="https://github.com/segunemmanuel" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/segun-adeyemi/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      </div>
     </div>
+    <div class="term" aria-label="Sample API response describing Emmanuel">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+<pre><span class="c">$ curl -s localhost:8080/api/v1/engineer | jq</span>
+{
+  <span class="k">"name"</span>: <span class="s">"Emmanuel Adeyemi"</span>,
+  <span class="k">"role"</span>: <span class="s">"Backend Engineer"</span>,
+  <span class="k">"years_experience"</span>: <span class="n">6</span>,
+  <span class="k">"core"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>,
+           <span class="s">"PHP"</span>, <span class="s">"Laravel"</span>,
+           <span class="s">"Node.js"</span>, <span class="s">"NestJS"</span>],
+  <span class="k">"also"</span>: [<span class="s">"Python"</span>, <span class="s">"SQL"</span>, <span class="s">"ML"</span>],
+  <span class="k">"domains"</span>: [<span class="s">"healthtech"</span>, <span class="s">"K-12 safety"</span>,
+              <span class="s">"geospatial"</span>, <span class="s">"ERP"</span>],
+  <span class="k">"location"</span>: <span class="s">"Birmingham, UK"</span>,
+  <span class="k">"open_to_work"</span>: <span class="n">true</span>
+}</pre>
+    </div>
+  </div>
+</header>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>I'm a backend engineer who likes the unglamorous parts of software: clean API contracts, sensible data models, and services that behave the same at 3am as they do in the demo.</p>
+        <p>I started out at <strong>Cuesoft</strong>, where I initiated and led <strong>Cueprise</strong>, an ERP platform, heading a 10-person team of designers and developers — and, since there was no sales team, selling it door-to-door too. Since then I've built backend services for a <strong>US K-12 safety platform</strong>, a <strong>geospatial</strong> product and a <strong>healthtech</strong> company.</p>
+        <p>I also hold an <strong>MSc in Data Science for Business</strong> (University of Stirling), so I'm comfortable on both sides of the pipeline — building the APIs and making sense of the data they produce. I'm currently doing an MBA at the University of Law, Birmingham.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>6+</b><span>years building backends</span></div>
+        <div class="stat"><b>10</b><span>person team led on Cueprise ERP</span></div>
+        <div class="stat"><b>~80%</b><span>fewer implementation errors after scoping changes I drove</span></div>
+        <div class="stat"><b>5</b><span>industries shipped into</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Experience</h2></div>
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-top"><h3>Backend Developer · <span>POSSafetyNet</span></h3><span class="when">Oct 2023 – Jul 2025</span></div>
+        <div class="ctx">US K-12 school safety platform</div>
+        <ul>
+          <li>Built and maintained backend services and REST APIs for a safety platform used by US schools.</li>
+          <li>Worked on data models, integrations and API reliability for school-facing features.</li>
+        </ul>
+        <div class="chips"><span class="chip">REST APIs</span><span class="chip">SQL</span><span class="chip">EdTech</span></div>
+      </div>
+
+      <div class="job">
+        <div class="job-top"><h3>Backend Developer · <span>Streams</span></h3><span class="when">Apr 2023 – Sep 2023</span></div>
+        <div class="ctx">Geospatial product</div>
+        <ul>
+          <li>Developed backend endpoints and data handling for location-based features.</li>
+        </ul>
+        <div class="chips"><span class="chip">APIs</span><span class="chip">Geospatial data</span></div>
+      </div>
+
+      <div class="job">
+        <div class="job-top"><h3>Backend Developer · <span>Swift Medispark</span> &amp; <span>Stride ERP</span></h3><span class="when">Jan 2022 – Jan 2023</span></div>
+        <div class="ctx">Healthtech platform · ERP software</div>
+        <ul>
+          <li>Built backend features for a healthtech product handling sensitive health-related data.</li>
+          <li>In parallel, contributed backend modules to an ERP product.</li>
+        </ul>
+        <div class="chips"><span class="chip">Healthtech</span><span class="chip">ERP</span><span class="chip">APIs</span></div>
+      </div>
+
+      <div class="job">
+        <div class="job-top"><h3>Backend Developer → Product Lead · <span>Cuesoft</span></h3><span class="when">Jan 2019 – Dec 2021</span></div>
+        <div class="ctx">Software company · Nigeria</div>
+        <ul>
+          <li>Initiated and led <b>Cueprise ERP</b>: wrote the project documents, ran requirements meetings and daily standups, and oversaw each delivery phase with a 10-person design and engineering team.</li>
+          <li>Made the call to build on <b>Laravel</b> over Node.js — a contested decision that brought in more clients and revenue.</li>
+          <li>Moved into a product-management role to control scope creep; decisions I drove cut operational and implementation error rates by around 80% in 3 of 5 cases.</li>
+          <li>Started the company's first sales and social media efforts — pitching the ERP to businesses in person and gathering requirements on site.</li>
+        </ul>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">Product</span></div>
+      </div>
+
+      <div class="job">
+        <div class="job-top"><h3>Freelance Backend Developer · <span>Fiverr</span></h3><span class="when">2019 – 2022</span></div>
+        <div class="ctx">Independent contracts</div>
+        <ul>
+          <li>Delivered backend APIs, WordPress sites and custom themes for international clients.</li>
+        </ul>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">WordPress</span><span class="chip">APIs</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Selected projects</h2></div>
+    <div class="grid">
+      <div class="card">
+        <div class="lang">Java · Spring Boot</div>
+        <h3>HMCTS Tasks API</h3>
+        <p>RESTful task-management API for court case tracking, with a separate TypeScript/React frontend consuming it.</p>
+        <a class="more" href="https://github.com/segunemmanuel/hmcts-tasks-api" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+      <div class="card">
+        <div class="lang">PHP · Laravel</div>
+        <h3>Webhook Inbox Relay</h3>
+        <p>Service that receives, stores and relays incoming webhooks — a reliable inbox between third-party providers and your app.</p>
+        <a class="more" href="https://github.com/segunemmanuel/webhook-inbox-relay" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+      <div class="card">
+        <div class="lang">PHP · Laravel</div>
+        <h3>Text Summarizer API</h3>
+        <p>REST API that ingests RSS feeds and returns summarised articles.</p>
+        <a class="more" href="https://github.com/segunemmanuel/text-summarizer-api" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+      <div class="card">
+        <div class="lang">PHP · Laravel</div>
+        <h3>Library Management API</h3>
+        <p>REST API for a library management system, built as a backend technical assessment.</p>
+        <a class="more" href="https://github.com/segunemmanuel/cavendish-consulting-backend-assessment" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+      <div class="card">
+        <div class="lang">TypeScript · AI</div>
+        <h3>LandmarkLen</h3>
+        <p>Full-stack app for discovering UK landmarks with AI-powered insights.</p>
+        <a class="more" href="https://github.com/segunemmanuel/LandmarkLen" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+      <div class="card">
+        <div class="lang">JavaScript · Chrome Extension</div>
+        <h3>Sponsor Check</h3>
+        <p>Chrome extension that checks the UK Home Office sponsor register straight from the browser.</p>
+        <a class="more" href="https://github.com/segunemmanuel/sponsor-check-extension" target="_blank" rel="noopener">→ view repo</a>
+      </div>
+    </div>
+    <p style="margin-top:24px;color:var(--muted)">More on <a href="https://github.com/segunemmanuel?tab=repositories" target="_blank" rel="noopener">GitHub</a>.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><h2>Toolbox</h2></div>
+    <div class="skills">
+      <div class="skill"><h3>Languages</h3><div class="chips"><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span></div></div>
+      <div class="skill"><h3>Frameworks</h3><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Laravel</span><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Vue</span></div></div>
+      <div class="skill"><h3>Backend</h3><div class="chips"><span class="chip">REST API design</span><span class="chip">MySQL</span><span class="chip">Webhooks</span><span class="chip">Auth</span><span class="chip">Git</span></div></div>
+      <div class="skill"><h3>Data &amp; delivery</h3><div class="chips"><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span><span class="chip">Agile / Scrum</span><span class="chip">Lean Six Sigma GB</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><h2>Education</h2></div>
+    <div class="edu">
+      <div><b>MBA (Professional Practice Year)</b><span>The University of Law, Birmingham · 2026 – 2028</span></div>
+      <div><b>MSc Data Science for Business — Merit</b><span>University of Stirling · 2024</span></div>
+      <div><b>BSc Physiology</b><span>University of Ilorin</span></div>
+      <div><b>Lean Six Sigma Green Belt</b><span>AIGPE · 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="sec-head" style="justify-content:center"><span class="num">06</span><h2>Let's talk</h2></div>
+    <p>Hiring for a backend role, or need an API built properly? I'm based in Birmingham and open to UK roles, hybrid or remote.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:segun9679@gmail.com">segun9679@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/segun-adeyemi/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://mannycodes.dev" target="_blank" rel="noopener">mannycodes.dev</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="y"></span> Emmanuel Adeyemi · built by hand, hosted on GitHub Pages</div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
