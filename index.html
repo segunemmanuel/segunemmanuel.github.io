@@ -3,62 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emmanuel Adeyemi — Backend Engineer</title>
-<meta name="description" content="Emmanuel (Manny) Adeyemi — backend engineer building APIs with Java, Spring Boot, Laravel and Node.js. Birmingham, UK.">
-<meta property="og:title" content="Emmanuel Adeyemi — Backend Engineer">
-<meta property="og:description" content="Backend engineer building APIs with Java, Spring Boot, Laravel and Node.js.">
+<title>Emmanuel Adeyemi — Software Engineer</title>
+<meta name="description" content="Emmanuel Adeyemi — software engineer at Mercor, building thoughtful software from Birmingham, UK.">
+<meta property="og:title" content="Emmanuel Adeyemi — Software Engineer">
+<meta property="og:description" content="Software engineer at Mercor, building thoughtful software from Birmingham, UK.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fafaf9; --text:#1c1917; --muted:#78716c; --line:#e7e5e4; --accent:#0d9488;
+    --bg:#fafaf9; --text:#1c1917; --muted:#78716c; --accent:#0d9488;
     --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
   }
   @media(prefers-color-scheme:dark){
-    :root{--bg:#0c0a09; --text:#e7e5e4; --muted:#a8a29e; --line:#292524; --accent:#2dd4bf;}
+    :root{--bg:#0c0a09; --text:#e7e5e4; --muted:#a8a29e; --accent:#2dd4bf;}
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  main{max-width:640px;margin:0 auto;padding:96px 24px 64px}
+  main{max-width:560px;margin:0 auto;padding:18vh 24px 64px}
 
-  h1{font-size:28px;font-weight:600;letter-spacing:-.015em}
-  .role{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:4px}
-  .intro{margin-top:28px;font-size:17px}
-  .intro p+p{margin-top:12px}
-  .intro .muted{color:var(--muted)}
+  h1{font-size:clamp(28px,6vw,40px);font-weight:600;letter-spacing:-.03em}
+  .role{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:8px}
+  .intro{margin-top:40px;font-size:clamp(20px,4vw,27px);line-height:1.35;letter-spacing:-.02em}
+  .intro .muted{display:block;margin-top:18px;color:var(--muted);font-size:16px;line-height:1.65;letter-spacing:0}
+  .typewriter{color:var(--accent);white-space:nowrap}
+  .typewriter::after{content:"";display:inline-block;width:2px;height:1em;margin-left:4px;background:currentColor;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
 
-  .links{display:flex;flex-wrap:wrap;gap:20px;margin-top:28px;font-size:15px}
-  .links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .links{display:flex;flex-wrap:wrap;gap:20px;margin-top:40px;font-size:15px}
+  .links a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
   .links a:hover{border-color:var(--accent);color:var(--accent)}
 
-  h2{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--muted);text-transform:lowercase;margin:72px 0 8px}
-
-  .projects{list-style:none}
-  .projects li{border-top:1px solid var(--line)}
-  .projects li:last-child{border-bottom:1px solid var(--line)}
-  .projects a{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:16px 0;text-decoration:none}
-  .projects a:hover .name{color:var(--accent)}
-  .name{font-weight:500}
-  .stack{font-family:var(--mono);font-size:12px;color:var(--muted);align-self:center}
-  .desc{grid-column:1/-1;color:var(--muted);font-size:15px}
-  .more{margin-top:16px;font-size:15px;color:var(--muted)}
-  .more a:hover{color:var(--accent)}
-
-  footer{margin-top:72px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  footer{margin-top:18vh;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  @media(prefers-reduced-motion:reduce){
+    .typewriter::after{animation:none}
+  }
+  @media(max-width:480px){
+    main{padding-top:12vh}
+    footer{margin-top:16vh}
+  }
 </style>
 </head>
 <body>
 <main>
 
   <h1>Emmanuel Adeyemi</h1>
-  <div class="role">backend engineer · birmingham, uk</div>
+  <div class="role">software engineer at mercor · birmingham, uk</div>
 
   <div class="intro">
-    <p>I build APIs and backend services — mostly Java/Spring Boot, Laravel and Node.js.</p>
-    <p class="muted">Previously at POSSafetyNet, Streams, Swift Medispark and Cuesoft. Open to UK backend roles, hybrid or remote.</p>
+    <p>I build <span class="typewriter" id="typewriter">useful software</span>.</p>
+    <span class="muted">I care about simple systems, clear interfaces, and work that makes a difference.</span>
   </div>
 
   <div class="links">
@@ -67,20 +63,36 @@
     <a href="https://www.linkedin.com/in/segun-adeyemi/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 
-  <h2>// projects</h2>
-  <ul class="projects">
-    <li><a href="https://github.com/segunemmanuel/finGPT" target="_blank" rel="noopener">
-      <span class="name">FinanceGPT</span><span class="stack">Python · PyTorch</span>
-      <span class="desc">A ~14M-parameter language model built from scratch for financial text, trained on SEC 10-K/10-Q filings. Custom tokenizer, attention and training loop, plus Q&amp;A over real filings.</span></a></li>
-    <li><a href="https://github.com/segunemmanuel/webhook-inbox-relay" target="_blank" rel="noopener">
-      <span class="name">Webhook Inbox Relay</span><span class="stack">Laravel</span>
-      <span class="desc">Receives, stores and relays webhooks between providers and your app.</span></a></li>
-  </ul>
-  <p class="more">More on <a href="https://github.com/segunemmanuel?tab=repositories" target="_blank" rel="noopener">GitHub →</a></p>
-
   <footer>© <span id="y"></span> Emmanuel Adeyemi</footer>
 
 </main>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const typewriter = document.getElementById('typewriter');
+  const words = ['useful software', 'reliable systems', 'better tools'];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let wordIndex = 0;
+
+  if (!reducedMotion) {
+    const pause = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
+
+    const typeNextWord = async () => {
+      await pause(2200);
+      for (let length = words[wordIndex].length; length >= 0; length -= 1) {
+        typewriter.textContent = words[wordIndex].slice(0, length);
+        await pause(45);
+      }
+      wordIndex = (wordIndex + 1) % words.length;
+      for (let length = 1; length <= words[wordIndex].length; length += 1) {
+        typewriter.textContent = words[wordIndex].slice(0, length);
+        await pause(75);
+      }
+      typeNextWord();
+    };
+
+    typeNextWord();
+  }
+</script>
 </body>
 </html>
